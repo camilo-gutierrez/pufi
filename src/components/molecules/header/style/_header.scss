@@ -1,0 +1,38 @@
+@mixin flexChilds($direction: row, $gap: 0.5rem) {
+  & > div {
+    @include flexContainer($direction, $gap);
+  }
+}
+
+.header {
+  @include flexContainer;
+  position: absolute;
+  width: 100vw;
+  background: linear-gradient( rgba(49, 49, 49, 0.603), rgba(66, 66, 66, 0.301), rgba(99, 99, 99, 0.027));
+  grid-gap: 1.5rem;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 3em;
+  color: rgba(230, 230, 230, 0.753);
+  @include flexChilds;
+  &__logo{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  &__navicons {
+    @include flexChilds($direction: column, $gap: 8px);
+    & > div {
+      padding: 11px;
+      font-size: 21px;
+      &:not(:last-child) {
+        border-right: 1px solid rgba(195, 195, 195, 0.342);
+      }
+    }
+  }
+  &__btnactions{
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+ 
+}
+

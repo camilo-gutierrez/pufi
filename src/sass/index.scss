@@ -1,0 +1,20 @@
+@import './variables.scss';
+@import './helper';
+@import '../components/atoms/title/style/title';
+@import '../components/atoms/titleBanner/style/titleBanner';
+@import '../components/atoms/button/style/button';
+@import '../components/atoms/input/style/form';
+@import '../components/atoms/title/style/title';
+@import '../components/molecules/collage/style/collage';
+@import '../components/molecules/footer/style/footer';
+@import '../components/molecules/header/style/header';
+@import '../components/molecules/cards/style/cards';
+@import '../components/objects/banner/style/banner';
+@import '../components/molecules/cards/style/cards';
+
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+

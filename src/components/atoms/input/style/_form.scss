@@ -1,0 +1,14 @@
+.form-container{
+    display: flex;
+    justify-content: center;
+    padding: 3em;
+    width: 100vw;
+}
+
+.form-box{
+    padding: .8em;
+    border: 1px solid black;
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+}

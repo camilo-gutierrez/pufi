@@ -1,0 +1,16 @@
+.container-banner-button{ 
+    position: absolute;
+    top: 75vh;
+    bottom: 25vh;
+    right: 50vw;
+    left: 50vw;
+    background-color: transparent;
+    @include flexContainer(column, 2rem,center);
+}
+
+.button-container{
+    color: $white;
+    padding: 1rem 2rem;
+    border: 2px solid $white;
+    background: transparent;
+}

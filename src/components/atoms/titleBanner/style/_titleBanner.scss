@@ -1,0 +1,19 @@
+    .title-banner {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        .text-banner {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 3px 3px 3px rgba(194, 195, 196, 0.705);
+        }
+    }
