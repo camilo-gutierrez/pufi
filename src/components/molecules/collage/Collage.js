@@ -1,6 +1,23 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { useSelector,  useDispatch } from 'react-redux';
+import { collageData } from '../../../redux/actions/collageAction';
 
 export default function Collage() {
+    
+
+    const dispatch = useDispatch()
+
+    const prueba = useSelector(state => state.collage.data)
+
+    console.log('Cambio',prueba);
+
+    useEffect(() => {
+        (() => {
+            dispatch(collageData());
+        })()
+     }, [])
+
+ 
     const listaImagenes = [
         {
             id: 1,
@@ -65,5 +82,6 @@ export default function Collage() {
             })}
         </div>
         </div>
+
     )
 }

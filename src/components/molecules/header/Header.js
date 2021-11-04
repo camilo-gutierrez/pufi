@@ -1,6 +1,8 @@
 import { RiShoppingBag3Fill, MdChair, IoUmbrellaOutline, GiKnapsack } from 'react-icons/all';
+
 function Header() {
     return (
+
         <div className="header">
             <div className="header__logo">
                 <h2>PUFI</h2>

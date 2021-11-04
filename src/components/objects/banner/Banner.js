@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../../sass/index.scss';
 import Button from '../../atoms/button/Button';
 import TitleBanner from '../../atoms/titleBanner/TitleBanner';
