@@ -4,7 +4,8 @@ import { API_URL } from "../utils/constants";
 export async function getBanners(){
     try {
         const response = await axios.get(`${API_URL}/banners`)
-        console.log(response.data);
+        const result = await response.data
+        return result 
     } catch (error) {
         console.log(error);
     }

@@ -3,7 +3,8 @@ import { types } from "../types/types";
 
 export const cardsData = () => {
   return async (dispatch) => {
-    dispatch(getCardsData(getCards));
+    const response = await getCards()
+    dispatch(getCardsData(response))
   };
 };
 

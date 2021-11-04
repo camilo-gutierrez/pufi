@@ -3,7 +3,8 @@ import { types } from "../types/types";
 
 export const bannersData = () => {
   return async (dispatch) => {
-    dispatch(getBannersData(getBanners));
+    const response = await getBanners()
+    dispatch(getBannersData(response));
   };
 };
 

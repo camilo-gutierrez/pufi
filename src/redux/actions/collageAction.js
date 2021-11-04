@@ -4,8 +4,8 @@ import { types } from "../types/types";
 
 export const collageData = () => {
   return async (dispatch) => {
-  const response = await dispatch(getCollageData(getCollage()));
-  return response
+   const response = await getCollage()
+   dispatch(getCollageData(response));
   };
 }; 
 

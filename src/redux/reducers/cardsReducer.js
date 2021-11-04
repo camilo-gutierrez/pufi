@@ -8,8 +8,7 @@ export const cardsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.getCards:
       return {
-        ...state,
-        data: [...state.data, action.payload],
+        data: action.payload,
       };
 
     default:

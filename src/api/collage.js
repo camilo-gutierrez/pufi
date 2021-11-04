@@ -5,7 +5,7 @@ import { API_URL } from "../utils/constants";
  export async function getCollage(){
     try {
         const response = await axios.get(`${API_URL}/collages`)
-        const result = response.data //[4].Background
+        const result = await response.data //[4].Background
         return result
     } catch (error) {
         console.log(error);

@@ -1,24 +1,64 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {bannersData} from '../../../redux/actions/bannerAction'
 import '../../../sass/index.scss';
+import { API_URL } from '../../../utils/constants';
 import Button from '../../atoms/button/Button';
 import TitleBanner from '../../atoms/titleBanner/TitleBanner';
 import Header from '../../molecules/header/Header';
 
 function Banner() {
+
+  const dispatch = useDispatch()
+
+  const images = useSelector(state => state.banners.data)
+
+  console.log('Bannerssss', images);
+
+  useEffect(() => {
+    (() => {
+        dispatch(bannersData());
+    })()
+ }, [])
+  
+   const mainContainer = useRef(null); 
+  
+  const circles = Array(images.length).fill(0).map(x => ({isSelected:false}));
+   const [circleState,setCircleState] = useState(circles);
+  function handleCircleClick(index){    
+    const cloned = [...circleState].map((x)=>({...x,isSelected:false}));
+    cloned[index].isSelected = !cloned[index].isSelected;
+    setCircleState(cloned);
+    mainContainer.current.scrollLeft = mainContainer.current.offsetWidth * index;
+  } 
   return (
     <>
       <div className="main-content">
          <Header/>
-         <div className="background-image">
-          <img src="https://cdn.pixabay.com/photo/2014/04/26/04/25/woman-332278_960_720.jpg" alt="" />
+
+          {/* {images && images.map((img) => {
+           return (
+             <div key={img.id}>
+             <img src={`${API_URL}${img.Main_image.url}`}/>
+             </div>
+           )
+           
+         })}  */}
+          <div className="background-image" ref={mainContainer}>
+          {images && images.map((img)=>(
+            <img src={`${API_URL}${img.Main_image.url}`} alt="" key={img.id} />
+          ))}
             <TitleBanner />
          <Button />
         </div> 
           <div className="nav-circles">
-            <span className="circle circle-selected"></span>
-            <span className="circle"></span>
-            <span className="circle"></span>
-          </div>
+            {circleState && circleState.map((circle,index)=>(
+              <>
+              <span className={`circle ${circle.isSelected ? 'circle-selected' : ''}`} onClick={() => handleCircleClick(index)}></span>
+              </>
+            ))}
+            
+          </div> 
       </div>
     </>
   );

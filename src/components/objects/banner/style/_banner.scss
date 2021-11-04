@@ -7,10 +7,17 @@ $dis: 7px;
 .main-content{
     height: 100vh;
     .background-image{ 
-        display: flex;
         z-index: -1;
         width: 100vw;
         height: 100vh;
+        display: grid;
+        grid-auto-flow: column;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+        
         img{
             width: 100vw;
             height: 100vh;
@@ -38,6 +45,7 @@ $dis: 7px;
         position: absolute;
         bottom: 1rem;
         left: 50%;
+        cursor: pointer;
         span.circle{
            display: block;
            border-radius:50%;
