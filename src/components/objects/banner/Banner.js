@@ -13,8 +13,6 @@ function Banner() {
 
   const images = useSelector(state => state.banners.data)
 
-  console.log('Bannerssss', images);
-
   useEffect(() => {
     (() => {
         dispatch(bannersData());
@@ -23,7 +21,7 @@ function Banner() {
   
    const mainContainer = useRef(null); 
   
-  const circles = Array(images.length).fill(0).map(x => ({isSelected:false}));
+  const circles = Array(images && images.length).fill(0).map(x => ({isSelected:false}));
    const [circleState,setCircleState] = useState(circles);
   function handleCircleClick(index){    
     const cloned = [...circleState].map((x)=>({...x,isSelected:false}));
@@ -35,15 +33,6 @@ function Banner() {
     <>
       <div className="main-content">
          <Header/>
-
-          {/* {images && images.map((img) => {
-           return (
-             <div key={img.id}>
-             <img src={`${API_URL}${img.Main_image.url}`}/>
-             </div>
-           )
-           
-         })}  */}
           <div className="background-image" ref={mainContainer}>
           {images && images.map((img)=>(
             <img src={`${API_URL}${img.Main_image.url}`} alt="" key={img.id} />
