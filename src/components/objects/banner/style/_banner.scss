@@ -43,6 +43,7 @@ $dis: 7px;
   .nav-circles{
         @include flexContainer(row, .5rem,center);
         position: absolute;
+        z-index: 10;
         bottom: 1rem;
         left: 50%;
         cursor: pointer;

@@ -18,17 +18,20 @@ function Banner() {
         dispatch(bannersData());
     })()
  }, [])
+    
+    const circles = Array(images.length).fill(0).map(x => ({isSelected:false}));
+    const [circleState,setCircleState] = useState( () => ([{id:1}, {id:2}, {id: 3}]));
   
-   const mainContainer = useRef(null); 
+    const mainContainer = useRef(null); 
   
-  const circles = Array(images && images.length).fill(0).map(x => ({isSelected:false}));
-   const [circleState,setCircleState] = useState(circles);
-  function handleCircleClick(index){    
-    const cloned = [...circleState].map((x)=>({...x,isSelected:false}));
-    cloned[index].isSelected = !cloned[index].isSelected;
-    setCircleState(cloned);
-    mainContainer.current.scrollLeft = mainContainer.current.offsetWidth * index;
-  } 
+    function handleCircleClick(index){    
+        const cloned = [...circleState].map((x)=>({...x,isSelected:false}));
+        cloned[index].isSelected = !cloned[index].isSelected;
+        setCircleState(cloned);
+        mainContainer.current.scrollLeft = mainContainer.current.offsetWidth * index;
+      }
+
+      console.log('circles',circleState);
   return (
     <>
       <div className="main-content">
@@ -43,7 +46,7 @@ function Banner() {
           <div className="nav-circles">
             {circleState && circleState.map((circle,index)=>(
               <>
-              <span className={`circle ${circle.isSelected ? 'circle-selected' : ''}`} onClick={() => handleCircleClick(index)}></span>
+              <span className={`circle ${circle.isSelected ? 'circle-selected' : 'circle'}`} onClick={() => handleCircleClick(index)}></span>
               </>
             ))}
             
